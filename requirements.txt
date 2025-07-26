@@ -1,0 +1,7 @@
+install
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+
