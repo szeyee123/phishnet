@@ -47,6 +47,7 @@ print(conf_matrix)
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
+
 # Save model for prediction pipeline
 joblib.dump(rf_model, '../models/rf_model.joblib')
 

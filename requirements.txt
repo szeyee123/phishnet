@@ -1,7 +1,7 @@
-install
 pandas
 scikit-learn
 matplotlib
 seaborn
-
+numpy
+tensorflow
 

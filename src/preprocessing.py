@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -24,11 +24,17 @@ else:
 # Handle missing values
 data = data.fillna(0)
 
-# Correlation heatmap (visualization)
-plt.figure(figsize=(12, 10))
-sns.heatmap(data.corr(), cmap='coolwarm')
-plt.title('Feature Correlation Heatmap')
-plt.show()
+# Select only numeric columns to avoid errors (Autoencoder)
+numeric_data = data.select_dtypes(include=['number'])
+
+scaler = MinMaxScaler()
+scaled_data = scaler.fit_transform(numeric_data.values)
+
+# # Correlation heatmap (visualization)
+# plt.figure(figsize=(12, 10))
+# sns.heatmap(data.corr(), cmap='coolwarm')
+# plt.title('Feature Correlation Heatmap')
+# plt.show()
 
 # Feature scaling
 scaler = StandardScaler()
